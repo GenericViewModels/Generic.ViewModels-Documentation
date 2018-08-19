@@ -4,11 +4,11 @@
 
 1. Create a .NET Standard Library named BooksLib
 
-![Create a .NET Standard Library](./images/01_CreateLib.png)
+![Create a .NET Standard Library](Images/01_CreateLib.PNG)
 
 2. Add the NuGet package to the the Generic.ViewModels Library
 
-![Add the NuGet Package](./images/02_AddPackages.png)
+![Add the NuGet Package](Images/02_AddPackages.PNG)
 
 3. Create Directories
 
@@ -132,7 +132,7 @@ Create a `BooksService` class that derives from the generic base class `ItemsSer
 
 Use **Quick Actions** in Visual Studio to create the constructor.
 
-![Create Constructor and Overrides](./images/03_CreateConstructorAndOverrides.png)
+![Create Constructor and Overrides](Images/03_CreateConstructorAndOverrides.PNG)
 
 Add the injection of the `IRepository<Book, int>` interface to the `BooksService` class.
 
