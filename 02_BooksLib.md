@@ -222,3 +222,27 @@ Create the class `BooksViewModel`. This class derives from the base class `Maste
         }
     }
 ```
+
+## Create a Mapping class to map the Book to the BookItemViewModel
+
+The class `BookToBookItemViewModelMap` needs to implement the interface `IItemToViewModelMap<Book, BookItemViewModel>`. Most of the implementation can be used form the base class `ItemToViewModelMap<Book, BookItemViewModel>` which only needs an implementation of the abstract method `CreateViewModel`.
+
+```csharp
+    public class BookToBookItemViewModelMap : ItemToViewModelMap<Book, BookItemViewModel>
+    {
+        private readonly IItemsService<Book> _itemsService;
+        private readonly IShowProgressInfo _showProgressInfo;
+        private readonly ILoggerFactory _loggerFactory;
+        public BookToBookItemViewModelMap(
+            IItemsService<Book> itemsService,
+            IShowProgressInfo showProgressInfo,
+            ILoggerFactory loggerFactory)
+        {
+            _itemsService = itemsService ?? throw new ArgumentNullException(nameof(itemsService));
+            _showProgressInfo = showProgressInfo ?? throw new ArgumentNullException(nameof(showProgressInfo));
+            _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
+        }
+        protected override BookItemViewModel CreateViewModel(Book item) =>
+            new BookItemViewModel(item, _itemsService, _showProgressInfo, _loggerFactory);
+    }
+```
