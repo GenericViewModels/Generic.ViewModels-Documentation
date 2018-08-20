@@ -1,8 +1,8 @@
-# Display a List - Windows
+# Preparations to use Generic.ViewModels with a Windows App
 
-## Preparations
+## Create a .NET Standard Library
 
-1. Create a .NET Standard Library named BooksLib
+1. Create a .NET Standard Library named BooksLib with models, services, and view-models
 
 ![Create a .NET Standard Library](Images/01_CreateLib.PNG)
 
@@ -10,13 +10,19 @@
 
 ![Add the NuGet Package](Images/02_AddPackages.PNG)
 
-3. Create Directories
+> Generic.ViewModels is currently not available on the NuGet server. This will change as the library proceeds. Now, you can either clone the repository with the following command, and a) include the project in your solution and add a project reference, or b) create a NuGet package and configure the NuGet package manager to use your local directory.
 
-Create the directories `Models`, `Services`, and `ViewModels`.
+`git clone https://github.com/GenericViewModels/Generic.ViewModels` 
 
-3. Reference the Prism.Core Library
+Create a NuGet package with the dotnet CLI:
 
-* Create a UWP Project named BooksApp-Windows
+`dotnet pack`
+
+3. Create the directories `Models`, `Services`, and `ViewModels`.
+
+4. Reference the Prism.Core Library
+
+## Create a UWP Project named BooksApp-Windows
     * Reference the BooksLib Library
     * Reference Microsoft.Extensions.DependencyInjection
     * Reference Microsoft.Logging
@@ -250,7 +256,6 @@ Create the class `BookItemViewModel` that derives from the base class `ItemViewM
         }
     }
 ```
-
 
 ## Create a View-Model to display a list of books
 
