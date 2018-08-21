@@ -2,9 +2,33 @@
 
 This application shows a list of books.
 
-This library can be used from the UWP, WPF, and Xamarin apps.
-
 Before implementing this application, [prepare the projects](01_Preparation.md), and [implement the Books library](02_BooksLib.md).
+
+## Create a UWP Project named BooksApp-Windows
+
+Create a new Universal Windows Platform project.
+
+Add NuGet packages and references:
+
+    * Reference the BooksLib Library
+    * Add the NuGet package *Microsoft.Extensions.DependencyInjection*
+    * Add the NuGet package *Microsoft.Extensions.Logging* and *Microsoft.Extensions.Logging.Debug*
+    * Add the NuGet package *Microsoft.UI.Xaml*
+
+The package *Microsoft.UI.Xaml* contains XAML controls for Windows apps that can be used with older Windows 10 versions. These controls need some styles included in the application. Add the `XamlControlResources` element to the file `App.xaml`:
+
+```xml
+<Application
+    x:Class="BooksApp_Windows.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BooksApp_Windows">
+    <Application.Resources>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+    </Application.Resources>
+
+</Application>
+```
 
 ## Define the dependency injection container
 
