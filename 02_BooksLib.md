@@ -1,6 +1,8 @@
 # Implement the BooksLib Library
 
-This library can be used from the UWP, WPF, and Xamarin apps
+This library can be used from the UWP, WPF, and Xamarin apps.
+
+Before creating this library, [prepare the projects](01_Preparation.md).
 
 ## Create a Model
 
@@ -246,3 +248,5 @@ The class `BookToBookItemViewModelMap` needs to implement the interface `IItemTo
             new BookItemViewModel(item, _itemsService, _showProgressInfo, _loggerFactory);
     }
 ```
+
+Now you're ready to [create the Windows app](03_UWPList.md).
